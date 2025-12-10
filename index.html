@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu Demo</title>
+    <link rel="stylesheet" href="./src/dropdown.css" />
+  </head>
+  <body>
+    <h1>Reusable Dropdown Menu Demo</h1>
+
+    <!-- First Dropdown -->
+    <div class="dropdown" data-dropdown>
+      <button class="dropdown-toggle" data-dropdown-toggle>
+        Select Language
+        <span class="dropdown-arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu" data-dropdown-menu>
+        <li><a href="#" class="dropdown-item">JavaScript</a></li>
+        <li><a href="#" class="dropdown-item">Python</a></li>
+        <li><a href="#" class="dropdown-item">Java</a></li>
+        <li><a href="#" class="dropdown-item">C++</a></li>
+        <li><a href="#" class="dropdown-item">Ruby</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown" data-dropdown>
+      <button class="dropdown-toggle" data-dropdown-toggle>
+        Choose Framework
+        <span class="dropdown-arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu" data-dropdown-menu>
+        <li><a href="#" class="dropdown-item">React</a></li>
+        <li><a href="#" class="dropdown-item">Vue.js</a></li>
+        <li><a href="#" class="dropdown-item">Angular</a></li>
+        <li><a href="#" class="dropdown-item">Svelte</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown" data-dropdown>
+      <button class="dropdown-toggle" data-dropdown-toggle>
+        Settings
+        <span class="dropdown-arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu" data-dropdown-menu>
+        <li><a href="#" class="dropdown-item">Profile</a></li>
+        <li><a href="#" class="dropdown-item">Account</a></li>
+        <li><a href="#" class="dropdown-item">Notifications</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a href="#" class="dropdown-item">Logout</a></li>
+      </ul>
+    </div>
+
+    <script type="module" src="./src/dropdown-static.js"></script>
+  </body>
+</html>
