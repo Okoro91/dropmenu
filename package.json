@@ -1,10 +1,18 @@
 {
   "name": "js-simple-dropdown-menu",
-  "version": "1.0.0",
-  "description": "A reusable, customizable dropdown menu component",
+  "version": "1.0.1",
+  "description": "A lightweight, reusable, customizable dropdown menu component written in vanilla JavaScript.",
   "type": "module",
   "main": "dist/dropdown.min.js",
   "style": "dist/dropdown.min.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Okoro91/dropmenu"
+  },
+  "homepage": "https://github.com/Okoro91/dropmenu#readme",
+  "bugs": {
+    "url": "https://github.com/Okoro91/dropmenu/issues"
+  },
   "scripts": {
     "build": "npm run build:js && npm run build:css",
     "build:js": "terser src/dropdown.js -o dist/dropdown.min.js --compress --mangle",
@@ -16,9 +24,13 @@
     "menu",
     "ui",
     "component",
-    "javascript"
+    "javascript",
+    "dropdown-menu",
+    "vanilla-js",
+    "frontend",
+    "widget"
   ],
-  "author": "Your Name",
+  "author": "Muhammed Okoro Ibrahim",
   "license": "MIT",
   "devDependencies": {
     "clean-css-cli": "^5.6.0",
