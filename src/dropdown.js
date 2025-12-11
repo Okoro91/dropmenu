@@ -93,52 +93,51 @@ class Dropdown {
       this.closeOverlay = null;
     }
   }
+
+  // Static methods
+  static instances = new Map();
+
+  static create(selector = "[data-dropdown]", options = {}) {
+    document.querySelectorAll(selector).forEach((element) => {
+      if (!Dropdown.instances.has(element)) {
+        Dropdown.instances.set(element, new Dropdown(element, options));
+      }
+    });
+  }
+
+  static closeAll(exclude = null) {
+    Dropdown.instances.forEach((instance, element) => {
+      if (instance !== exclude && instance.isOpen) {
+        instance.close();
+      }
+    });
+  }
+
+  static destroyAll() {
+    Dropdown.instances.forEach((instance, element) => {
+      instance.destroy();
+    });
+    Dropdown.instances.clear();
+  }
+
+  destroy() {
+    this.close();
+    this.removeCloseOverlay();
+
+    // Remove event listeners
+    this.element.removeEventListener("mouseenter", this.open);
+    this.element.removeEventListener("mouseleave", this.close);
+    this.toggleButton.removeEventListener("click", this.toggle);
+    this.menu.removeEventListener("click", this.handleMenuClick);
+
+    Dropdown.instances.delete(this.element);
+  }
 }
 
-// Static methods
-//   static instances = new Map();
-
-//   static create(selector = "[data-dropdown]", options = {}) {
-//     document.querySelectorAll(selector).forEach((element) => {
-//       if (!Dropdown.instances.has(element)) {
-//         Dropdown.instances.set(element, new Dropdown(element, options));
-//       }
-//     });
-//   }
-
-//   static closeAll(exclude = null) {
-//     Dropdown.instances.forEach((instance, element) => {
-//       if (instance !== exclude && instance.isOpen) {
-//         instance.close();
-//       }
-//     });
-//   }
-
-//   static destroyAll() {
-//     Dropdown.instances.forEach((instance, element) => {
-//       instance.destroy();
-//     });
-//     Dropdown.instances.clear();
-//   }
-
-//   destroy() {
-//     this.close();
-//     this.removeCloseOverlay();
-
-//     // Remove event listeners
-//     this.element.removeEventListener("mouseenter", this.open);
-//     this.element.removeEventListener("mouseleave", this.close);
-//     this.toggleButton.removeEventListener("click", this.toggle);
-//     this.menu.removeEventListener("click", this.handleMenuClick);
-
-//     Dropdown.instances.delete(this.element);
-//   }
-// }
-
-// // Auto-initialize dropdowns on page load
-// document.addEventListener("DOMContentLoaded", () => {
-//   Dropdown.create();
-// });
+// Auto-initialize dropdowns on page load
+document.addEventListener("DOMContentLoaded", () => {
+  Dropdown.create();
+});
 
 // Export for module usage
 export default Dropdown;

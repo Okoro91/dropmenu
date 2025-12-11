@@ -1,13 +1,14 @@
 {
-  "name": "simple-dropdown-menu",
+  "name": "js-simple-dropdown-menu",
   "version": "1.0.0",
   "description": "A reusable, customizable dropdown menu component",
+  "type": "module",
   "main": "dist/dropdown.min.js",
   "style": "dist/dropdown.min.css",
   "scripts": {
     "build": "npm run build:js && npm run build:css",
-    "build:js": "terser dropdown.js -o dist/dropdown.min.js --compress --mangle",
-    "build:css": "cleancss -o dist/dropdown.min.css dropdown.css",
+    "build:js": "terser src/dropdown.js -o dist/dropdown.min.js --compress --mangle",
+    "build:css": "cleancss src/dropdown.css -o dist/dropdown.min.css",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -24,7 +25,6 @@
     "terser": "^5.15.0"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ]
 }
